@@ -1,0 +1,14 @@
+{
+    "name": "dani/datata-blog",
+    "authors": [
+        {
+            "name": "datata",
+            "email": "danitt15@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+        "psr-4":{
+            "App\\":"src/"}
+        }
+}
