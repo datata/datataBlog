@@ -1,13 +1,11 @@
 <?php
 namespace App\controllers;
 
-use App\ViewManager;
 
-class WhoController
+class WhoController extends Controller
 {
-    public function showview()
+    public function index()
     {
-        $viewManager = new ViewManager();
-        $viewManager->renderTemplate("who.view.html");
+        $this->viewManager->renderTemplate("who.view.html");
     }
 } 

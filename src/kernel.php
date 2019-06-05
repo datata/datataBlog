@@ -30,6 +30,7 @@ class kernel
         //$routerManager->dispatch($httpMethod, $uri, $web::getDispatcher());       
     }
 
+    //creamos el contenedor y que usamos el Autowiring
     public function createContainer():Container 
     {
         $containerBuilder = new ContainerBuilder();

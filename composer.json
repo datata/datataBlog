@@ -19,6 +19,6 @@
         },
     "scripts":
         {
-            "start": "php -S localhost:5012 -t=public"
+            "start": "php -S localhost:5015 -t=public"
         }
 }
