@@ -24,7 +24,7 @@ environments:
     development:
         adapter: mysql
         host: localhost
-        name: datataBlog
+        name: bdmyblog
         user: root
         pass: 'mysql'
         port: 3306
