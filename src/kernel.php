@@ -16,6 +16,7 @@ class kernel
         //echo "<h1>HOLA MUNDO</h1>";
         $this->container = $this->createContainer();
         $this->logger = $this->container->get(LogManager::class);
+        $this->doctrine = $this->container->get(DoctrineManager::class);
     }
 
    public function init()
