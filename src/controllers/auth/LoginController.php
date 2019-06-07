@@ -16,7 +16,7 @@ class LoginController extends Controller
    public function index(){
 
        $this->error = null;
-       $this->viewManager->renderTemplate("login.view.html");
+       $this->viewManager->renderTemplate('auth\login.view.html');
    }
 
    public function login(DoctrineManager $doctrine)
@@ -36,7 +36,7 @@ class LoginController extends Controller
         if(!$user)
         {
          $this->error = "El usuario no existe";
-         return $this->viewManager->renderTemplate("login.view.html",['error'=>$this->error]);
+         return $this->viewManager->renderTemplate('auth\login.view.html',['error'=>$this->error]);
         
         } 
         //Kint::dump(sha1($password),$user->password);
@@ -45,7 +45,7 @@ class LoginController extends Controller
         if($user->password !== sha1($password)) 
         {
         $this->error = "El usuario o password es incorrecto";
-        return $this->viewManager->renderTemplate("login.view.html",['error'=>$this->error]);
+        return $this->viewManager->renderTemplate('auth\login.view.html',['error'=>$this->error]);
         }
 
         $this->sessionManager->put('user',$user->email);
