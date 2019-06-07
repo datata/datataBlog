@@ -10,13 +10,11 @@ use Kint;
 class HomeController extends Controller
 {
 
-   public function index(DoctrineManager $doctrine)
+   public function index()
    {
       // $viewManager = $this->container->get(ViewManager::class);
-      $user = $doctrine->em->getRepository(User::class)->find(70);
-      Kint::dump($user);
+      //$user = $doctrine->em->getRepository(User::class)->find(2);
       $this ->viewManager->renderTemplate("index.view.html");
-   }
-  
+   }  
 
 }

@@ -3,18 +3,18 @@ namespace App\controllers;
 
 use App\ViewManager;
 use App\LogManager;
-use App\Sumador;
+
 use DI\Container;
 
 use App\DoctrineManager;
 
 abstract class Controller
 {
+
     protected $container;
     protected $viewManager;
     protected $logger;
-    protected $sumatorio;
-
+    
     public function __construct(Container $container)
     {
         $this->container = $container;
@@ -23,6 +23,6 @@ abstract class Controller
         $this->logger->info("Clase ".get_class($this)." cargada");
     }
 
-    public abstract function index(DoctrineManager $doctrine);
+    public abstract function index();
 
 }
