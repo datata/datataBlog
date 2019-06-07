@@ -14,7 +14,12 @@
             <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>
         </form>
 
-        
+        {% if error %}        
+        <div class="alert alert-danger" role="alert">
+            {{error}}
+        </div>
+        {% endif %}
+
     </div>
 </div>
 

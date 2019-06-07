@@ -9,8 +9,11 @@ use Kint;
 
 class LoginController extends Controller 
 {
+    private $error;
+
    public function index(){
 
+       $this->error = null;
        $this->viewManager->renderTemplate("login.view.html");
    }
 
@@ -25,12 +28,16 @@ class LoginController extends Controller
         //finOneBy+el campo q ha de buscar
         //Kint::dump($user->findOneByEmail("datata"));
 
-        $user = $repository->findOneByEnail($email);
-        if(!$result) echo "<h1>El usuario no existe</h1>";
+        $user = $repository->findOneByEmail($email);
+
+        //comprobacion si user existe
+        if(!$user)
+        {
+         $this->error = "El usuario no existe";
+         return $this->viewManager->renderTemplate("login.view.html",['error'=>$this->error]);
         
-
-
-
+        } 
+        
 
       
     //    $name=$_POST['name'];
