@@ -46,7 +46,7 @@ class LoginController extends Controller
         return $this->viewManager->renderTemplate("login.view.html",['error'=>$this->error]);
         }
 
-        $this->redirectTo('');
+        $this->redirectTo('dashboard');
 
     
    }
