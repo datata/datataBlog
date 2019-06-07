@@ -18,6 +18,8 @@ class web
             $route->addRoute('POST','/login',['App\controllers\LoginController',"login"]);
             //dashBoard
             $route->addRoute('GET','/dashboard',['App\controllers\DashBoardController',"index"]);
+            $route->addRoute('GET','/logout',['App\controllers\LogoutController',"index"]);
+
 
         }
     );
