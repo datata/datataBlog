@@ -21,7 +21,7 @@ class LoginController extends Controller
    {
         //echo "Pulsado login";
         $email = $_POST['email'];
-        $passwd = $_POST['passwd'];
+        $password = $_POST['passwd'];
         //
 
         $repository=$doctrine->em->getRepository(User::class);
@@ -37,13 +37,16 @@ class LoginController extends Controller
          return $this->viewManager->renderTemplate("login.view.html",['error'=>$this->error]);
         
         } 
-        
+        //Kint::dump(sha1($password),$user->password);
+
         //comprobacion si passwd existe
-        if($user->password !== sha1($passwd)) 
+        if($user->password !== sha1($password)) 
         {
         $this->error = "El usuario o password es incorrecto";
         return $this->viewManager->renderTemplate("login.view.html",['error'=>$this->error]);
         }
+
+        $this->redirectTo('');
 
     
    }
