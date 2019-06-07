@@ -16,5 +16,20 @@ class PostsSeeder extends AbstractSeed
     public function run()
     {
 
+        $faker = Faker\Factory::create();
+        $data=[];
+
+        //Buscamos en libreria las rpopiedades del objeto faker 
+        for($i=0;$i<10;$i++){
+            $data[]=[
+                'title'=>$faker->word,
+                'body'=>$faker->text,
+                'id_user'=>$faker->randomDigit,
+                'created_at'=>date('Y-m-d H:i:s')           
+            ];
+        }
+
+        $this->insert('posts',$data);
+
     }
 }
