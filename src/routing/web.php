@@ -11,14 +11,15 @@ class web
             $route->addRoute('GET','/',['App\controllers\HomeController',"index"]);
             $route->addRoute('GET','/who',['App\controllers\WhoController',"index"]);
             //register
-            $route->addRoute('GET','/register',['App\controllers\RegisterController',"index"]);
-            $route->addRoute('POST','/register',['App\controllers\RegisterController',"register"]);
+            $route->addRoute('GET','/register',['App\controllers\auth\RegisterController',"index"]);
+            $route->addRoute('POST','/register',['App\controllers\auth\RegisterController',"register"]);
             //login
-            $route->addRoute('GET','/login',['App\controllers\LoginController',"index"]);
-            $route->addRoute('POST','/login',['App\controllers\LoginController',"login"]);
+            $route->addRoute('GET','/login',['App\controllers\auth\LoginController',"index"]);
+            $route->addRoute('POST','/login',['App\controllers\auth\LoginController',"login"]);
             //dashBoard
             $route->addRoute('GET','/dashboard',['App\controllers\DashBoardController',"index"]);
-            $route->addRoute('GET','/logout',['App\controllers\LogoutController',"index"]);
+            //logout
+            $route->addRoute('GET','/logout',['App\controllers\auth\LogoutController',"index"]);
 
 
         }
