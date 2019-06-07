@@ -1,5 +1,6 @@
 <?php
 namespace App\models\entities;
+
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -8,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 * @ORM\Table(name="users")
 */
 
-class User{
+class User extends Entity{
 /**
 * @ORM\Id
 * @ORM\Column(type="integer")
@@ -32,7 +33,7 @@ protected $email;
 protected $password;
 
 /**
- * @ORM\Column(type="datetime")
+* @ORM\Column(type="datetime")
  */
  protected $created_at;
 
@@ -43,8 +44,10 @@ protected $password;
 
 
 
- public function __construct(){
+ public function __construct()
+ {
      $this->created_at=new \DateTime('now');
+     $this->updated_at=new \DateTime('now');
  }
 
 }
