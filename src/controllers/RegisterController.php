@@ -20,7 +20,7 @@ class RegisterController extends Controller {
       
         $name=$_POST['name'];
         $email=$_POST['email'];
-        $passwd=$_POST['passwd'];
+        $password=$_POST['passwd'];
         //Kint::dump($doctrine);
        
         //Kint::dump($user);

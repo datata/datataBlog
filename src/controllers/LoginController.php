@@ -7,35 +7,48 @@ use App\models\entities\User;
 
 use Kint;
 
-class LoginController extends Controller {
-
+class LoginController extends Controller 
+{
+    private $error;
 
    public function index(){
 
+       $this->error = null;
        $this->viewManager->renderTemplate("login.view.html");
    }
 
    public function login(DoctrineManager $doctrine)
    {
-      
-    //    $name=$_POST['name'];
-    //    $email=$_POST['email'];
-    //    $passwd=$_POST['passwd'];
-    //    //Kint::dump($doctrine);
-       
-    //    //Kint::dump($user);
+        //echo "Pulsado login";
+        $email = $_POST['email'];
+        $password = $_POST['passwd'];
+        //
 
-    //    $user = new User();
+        $repository=$doctrine->em->getRepository(User::class);
+        //finOneBy+el campo q ha de buscar
+        //Kint::dump($user->findOneByEmail("datata"));
 
-    //    $user->name =$name;
-    //    $user->email =$email;
-    //    $user->password =sha1($password);
-    //    //Kint::dump($user);
+        $user = $repository->findOneByEmail($email);
 
-    //    //almacenamos en base de datos
-    //     $doctrine->em->persist($user);
-    //     $doctrine->em->flush();
+        //comprobacion si user existe
+        if(!$user)
+        {
+         $this->error = "El usuario no existe";
+         return $this->viewManager->renderTemplate("login.view.html",['error'=>$this->error]);
+        
+        } 
+        //Kint::dump(sha1($password),$user->password);
 
+        //comprobacion si passwd existe
+        if($user->password !== sha1($password)) 
+        {
+        $this->error = "El usuario o password es incorrecto";
+        return $this->viewManager->renderTemplate("login.view.html",['error'=>$this->error]);
+        }
+
+        $this->redirectTo('');
+
+    
    }
 
 
