@@ -1,5 +1,7 @@
 <?php
-namespace App\controllers;
+namespace App\controllers\auth;
+
+use App\controllers\Controller;
 
 use App\DoctrineManager;
 
