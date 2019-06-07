@@ -16,6 +16,10 @@ class web
             //login
             $route->addRoute('GET','/login',['App\controllers\LoginController',"index"]);
             $route->addRoute('POST','/login',['App\controllers\LoginController',"login"]);
+            //dashBoard
+            $route->addRoute('GET','/dashboard',['App\controllers\DashBoardController',"index"]);
+            $route->addRoute('GET','/logout',['App\controllers\LogoutController',"index"]);
+
 
         }
     );
