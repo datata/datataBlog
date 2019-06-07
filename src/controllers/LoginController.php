@@ -38,26 +38,14 @@ class LoginController extends Controller
         
         } 
         
+        //comprobacion si passwd existe
+        if($user->password !== sha1($passwd)) 
+        {
+        $this->error = "El usuario o password es incorrecto";
+        return $this->viewManager->renderTemplate("login.view.html",['error'=>$this->error]);
+        }
 
-      
-    //    $name=$_POST['name'];
-    //    $email=$_POST['email'];
-    //    $passwd=$_POST['passwd'];
-    //    //Kint::dump($doctrine);
-       
-    //    //Kint::dump($user);
-
-    //    $user = new User();
-
-    //    $user->name =$name;
-    //    $user->email =$email;
-    //    $user->password =sha1($password);
-    //    //Kint::dump($user);
-
-    //    //almacenamos en base de datos
-    //     $doctrine->em->persist($user);
-    //     $doctrine->em->flush();
-
+    
    }
 
 
