@@ -6,7 +6,8 @@ class DashBoardController extends Controller
 {
     public function index()
     {
-        $this->viewManager->renderTemplate("dashboard.view.html");
+        $user = $this->sessionManager->get('user');
+        $this->viewManager->renderTemplate('dashboard.view.html',['user'=>$user]);
     }
 
 }
