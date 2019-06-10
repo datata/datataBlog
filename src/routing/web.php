@@ -22,8 +22,7 @@ class web
             $route->addRoute('GET','/logout',['App\controllers\auth\LogoutController',"index"]);
             //create-post 
             $route->addRoute('GET','/create-post',['App\controllers\PostController',"index"]);
-
-
+            $route->addRoute('POST','/create-post',['App\controllers\PostController',"create"]);
 
         }
     );
