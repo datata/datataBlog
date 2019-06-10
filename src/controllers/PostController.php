@@ -1,15 +1,13 @@
 <?php 
 namespace App\controllers;
 
-class PostController extends Controller
-{
+use App\Services\UsersService;
 
+class PostController extends ControllerAuth
+{
     public function index()
     {
-       
-       $this ->viewManager->renderTemplate('form-post.view.html');
+       $this ->viewManager->renderTemplate('form-post.view.html',['user'=>$this->user->email]);
     }  
- 
-
 
 }
