@@ -1,13 +1,14 @@
 <?php 
 namespace App\controllers;
 
-use App\Services\UsersService;
+use App\services\UsersService;
+use App\services\PostsService;
 
 use App\DoctrineManager;
 
-
-
 use App\models\entities\Post;
+
+use Kint;
 
 class PostController extends ControllerAuth
 {
@@ -36,6 +37,24 @@ class PostController extends ControllerAuth
         $this->redirectTo('dashboard');
 
     } 
+
+    public function delete($id){
+
+        $postService = $this->container->get(PostsService::class);
+       
+        try{
+
+        $postService->deletePostUserById($this->user->id,$id);
+        }catch(Exception $e)
+        {
+            $this->Logger->error($e->getMessage());
+        }
+        $this->redirectTo('dashboard');
+    }
+
+    
+
+    
 
 
 

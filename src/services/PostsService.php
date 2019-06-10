@@ -10,6 +10,7 @@ class PostsService
 {
     private $repository;
     private $doctrine;
+
     public function __construct(DoctrineManager $doctrine)
     {
         $this->doctrine=$doctrine;
@@ -27,6 +28,16 @@ class PostsService
         
         return $this->repository->findByIdUser($id);
         
+    }
+
+    public function deletePostUserById(int $idUser,int $idPost)
+    {
+        $post = $this->repository->find($idPost);
+        if(!$post) throw new \Exception("El post no existe");
+        if($post->idUser !==$idUser) throw new \Exception("El usuario no tiene permisos");
+
+        $this->doctrine->em->remove($post);
+        $this->doctrine->em->flush();
     }
 
     
