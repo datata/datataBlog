@@ -2,6 +2,8 @@
 namespace App\services;
 
 use App\DoctrineManager;
+use App\models\entities\Post;
+
 use Kint;
 
 class PostsService
@@ -13,6 +15,8 @@ class PostsService
     }
     public function getPosts()
     {
+        $repository = $this->doctrine->em->getRepository(Post::class);
+        return $repository->findAll();
         Kint::dump($this->doctrine);
     }
 }

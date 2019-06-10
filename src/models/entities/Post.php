@@ -15,7 +15,7 @@ class Post extends Entity{
 * @ORM\Column(type="integer")
 * @ORM\GeneratedValue(strategy="IDENTITY")
 */
-protected $id;
+public $id;
 
 /**
 * @ORM\Column(type="string")
@@ -30,17 +30,17 @@ public $body;
 /**
 * @ORM\Column(type="integer")
 */
-protected $id_user;
+public $id_user;
 
 /**
 * @ORM\Column(type="datetime")
  */
- protected $created_at;
+public $created_at;
 
  /**
   * @ORM\Column(type="datetime")
   */
- protected $updated_at;
+ public $updated_at;
 
 
 

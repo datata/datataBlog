@@ -4,6 +4,7 @@ namespace App\controllers;
 use App\services\PostsService;
 use App\models\entities\Post;
 
+
 use Kint;
 
 class HomeController extends Controller
@@ -14,9 +15,10 @@ class HomeController extends Controller
 
       $PostsService = $this->container->get(PostsService::class);
 
-      $PostsService->getPosts();
+      $posts = $PostsService->getPosts();
+      Kint::dump($posts);
 
-      $this ->viewManager->renderTemplate("index.view.html");
+      $this ->viewManager->renderTemplate("index.view.html",['posts'=>$posts]);
    }  
 
 }
