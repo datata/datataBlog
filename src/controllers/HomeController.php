@@ -1,9 +1,9 @@
 <?php
 namespace App\controllers;
 
-use App\DoctrineManager;
+use App\services\PostsService;
+use App\models\entities\Post;
 
-use App\models\entities\User;
 
 use Kint;
 
@@ -12,9 +12,13 @@ class HomeController extends Controller
 
    public function index()
    {
-      // $viewManager = $this->container->get(ViewManager::class);
-      //$user = $doctrine->em->getRepository(User::class)->find(2);
-      $this ->viewManager->renderTemplate("index.view.html");
+
+      $PostsService = $this->container->get(PostsService::class);
+
+      $posts = $PostsService->getPosts();
+      Kint::dump($posts);
+
+      $this ->viewManager->renderTemplate("index.view.html",['posts'=>$posts]);
    }  
 
 }
