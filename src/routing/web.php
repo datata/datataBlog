@@ -20,6 +20,9 @@ class web
             $route->addRoute('GET','/dashboard',['App\controllers\DashBoardController',"index"]);
             //logout
             $route->addRoute('GET','/logout',['App\controllers\auth\LogoutController',"index"]);
+            //create-post 
+            $route->addRoute('GET','/create-post',['App\controllers\PostController',"index"]);
+
 
 
         }

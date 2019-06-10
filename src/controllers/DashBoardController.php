@@ -17,8 +17,10 @@ class DashBoardController extends Controller
         $id=$this->sessionManager->get('user');
 
         $posts=$PostsService->getPostsById($id);
+        Kint::dump($posts);
 
         $user=$UsersService->getUserById($id);
+        Kint::dump($user);
         
         
         if(!$user) return $this->redirectTo('login');

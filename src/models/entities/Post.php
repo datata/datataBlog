@@ -40,7 +40,7 @@ public $created_at;
  /**
   * @ORM\Column(type="datetime")
   */
- public $updated_at;
+public $updated_at;
 
 
 
