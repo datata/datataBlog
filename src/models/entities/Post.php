@@ -20,12 +20,12 @@ protected $id;
 /**
 * @ORM\Column(type="string")
 */
-protected $title;
+public $title;
 
 /**
 * @ORM\Column(type="string")
 */
-protected $body;
+public $body;
 
 /**
 * @ORM\Column(type="integer")

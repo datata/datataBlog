@@ -17,12 +17,13 @@ class HomeController extends Controller
 
       $doctrineManager = $this->container->get(DoctrineManager::class);
       $repository = $doctrineManager->em->getRepository(Post::class);
-      Kint::dump($repository);
+      //Kint::dump($repository);
       $posts=$repository->findAll();
-
-      // $viewManager = $this->container->get(ViewManager::class);
+      Kint::dump($posts);
+      
+      //$viewManager = $this->container->get(ViewManager::class);
       //$user = $doctrine->em->getRepository(User::class)->find(2);
-      $this ->viewManager->renderTemplate("index.view.html");
+      $this ->viewManager->renderTemplate("index.view.html",['posts'=>$posts]);
    }  
 
 }
