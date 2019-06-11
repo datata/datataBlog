@@ -1,0 +1,17 @@
+{% extends "template-logged.view.html" %}
+{% block body%}
+
+    <div class = "container">
+            <div class="wrapper">
+                <form role="form" method="post" name="edit-post" class="form-signin">
+                    <h3 class="form-signin-heading">Edit Post</h3>
+                    <hr class="colorgraph"><br>
+        
+                    <input type="text" class="form-control" name="title" placeholder="Title" required="" autofocus="" />
+                    <textarea class="form-control" name="body" placeholder="Body" required="" autofocus=""></textarea>
+                    <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Create" type="Submit">Edit</button>
+                </form>
+            </div>
+        </div>
+
+{%endblock%}

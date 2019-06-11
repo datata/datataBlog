@@ -1,15 +1,21 @@
 <?php
 namespace App\controllers;
+use App\services\UsersService;
+use App\services\PostsService;
+
+use Kint;
 
 
-class DashBoardController extends Controller
+class DashBoardController extends ControllerAuth
 {
     public function index()
-    {
-        $user = $this->sessionManager->get('user');
-        
-        if(!$user) return $this->redirectTo('login');
-        $this->viewManager->renderTemplate('dashboard.view.html',['user'=>$user]);
+    {       
+
+        $PostsService = $this->container->get(PostsService::class);
+    
+        $posts=$PostsService->getPostsById($this->user->id);
+       
+        $this->viewManager->renderTemplate('dashboard.view.html',['user'=>$this->user->email,'posts'=>$posts]);
     }
 
 }

@@ -30,7 +30,7 @@ public $body;
 /**
 * @ORM\Column(type="integer")
 */
-public $id_user;
+public $idUser;
 
 /**
 * @ORM\Column(type="datetime")
@@ -40,7 +40,7 @@ public $created_at;
  /**
   * @ORM\Column(type="datetime")
   */
- public $updated_at;
+public $updated_at;
 
 
 

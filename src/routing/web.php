@@ -20,6 +20,15 @@ class web
             $route->addRoute('GET','/dashboard',['App\controllers\DashBoardController',"index"]);
             //logout
             $route->addRoute('GET','/logout',['App\controllers\auth\LogoutController',"index"]);
+            //create-post 
+            $route->addRoute('GET','/create-post',['App\controllers\PostController',"index"]);
+            $route->addRoute('POST','/create-post',['App\controllers\PostController',"create"]);
+            //delete-post
+            $route->addRoute('GET','/delete-post/{id}',['App\controllers\PostController',"delete"]);
+            //edit-post
+            $route->addRoute('GET','/edit-post/{id}',['App\controllers\PostController',"edit"]);
+            $route->addRoute('POST','/edit-post/{id}',['App\controllers\PostController',"update"]);
+
 
 
         }

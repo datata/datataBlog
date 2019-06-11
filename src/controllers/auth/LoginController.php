@@ -48,7 +48,7 @@ class LoginController extends Controller
         return $this->viewManager->renderTemplate('auth\login.view.html',['error'=>$this->error]);
         }
 
-        $this->sessionManager->put('user',$user->email);
+        $this->sessionManager->put('user',$user->id);
 
         $this->redirectTo('dashboard');
 
