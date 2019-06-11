@@ -25,6 +25,10 @@ class web
             $route->addRoute('POST','/create-post',['App\controllers\PostController',"create"]);
             //delete-post
             $route->addRoute('GET','/delete-post/{id}',['App\controllers\PostController',"delete"]);
+            //edit-post
+            $route->addRoute('GET','/edit-post/{id}',['App\controllers\PostController',"edit"]);
+            $route->addRoute('POST','/edit-post/{id}',['App\controllers\PostController',"update"]);
+
 
 
         }

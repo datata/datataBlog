@@ -10,6 +10,7 @@
             <th scope="col">title</th>
             <th scope="col">body</th>
             <th scope="col">User</th>
+            <th scope="col">Edit</th>
             <th scope="col">Delete</th>
 
           </tr>
@@ -21,6 +22,8 @@
             <td>{{ post.title }}</td>
             <td>{{ post.body }}</td>
             <td>{{ post.idUser}} </td>
+            <td><a class="btn btn-success" href="/edit-post/{{post.id}}">edit</a> </td>
+
             <td><a class="btn btn-danger" href="/delete-post/{{post.id}}">borrar</a> </td>
 
           </tr>

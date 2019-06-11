@@ -52,10 +52,29 @@ class PostController extends ControllerAuth
         $this->redirectTo('dashboard');
     }
 
-    
+    public function edit($id)
+    {
+       
+        $this ->viewManager->renderTemplate('edit-post.view.html',['user'=>$this->user->email]);
+
+    }
+
+    public function update($id){
+        $postService =$this->container->get(PostsService::class);
+        try
+        {
+         $post = $postService-> getPostUserById($this->user->id, $id);
+     
+         $title = $_POST['title'];
+         $body= $_POST['body'];
+         $post->title = $title;
+         $post->body= $body;
+        $postService->pullPostUserById($this->user->id, $post);
+        $this->redirectTo('dashboard');
+        }catch (\Exception $e){
+            $this->logger->error($e->getMessage());
+        }
+    } 
 
     
-
-
-
 }

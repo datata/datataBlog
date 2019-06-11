@@ -40,6 +40,21 @@ class PostsService
         $this->doctrine->em->flush();
     }
 
+    public function getPostUserById(int $idUser, int $idPost):Post
+    {
+        $post= $this->repository->find($idPost);
+        if(!$post) throw new \Exception("El post no existe");
+        if($post->idUser !== $idUser) throw new \Exception("El uusario no tiene permisos para verlo");
+        return $post;
+    }
+    public function pullPostUserById(int $idUser, Post $post):Post
+    {
+        if($post->idUser !== $idUser) throw new \Exception("El usuario no tiene permisos para modificar");
+        $this->doctrine->em->merge($post);
+        $this->doctrine->em->flush();
+        return $post;
+    }
+
     
 
 
