@@ -14,11 +14,12 @@ class HomeController extends Controller
    {
 
       $PostsService = $this->container->get(PostsService::class);
-
       $posts = $PostsService->getPosts();
       Kint::dump($posts);
 
-      $this ->viewManager->renderTemplate("index.view.html",['posts'=>$posts]);
+      $user = $this->sessionManager->get('user');
+
+      $this ->viewManager->renderTemplate("index.view.html",['posts'=>$posts,'user'=>$user]);
    }  
 
 }
