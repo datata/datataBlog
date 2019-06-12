@@ -22,9 +22,9 @@
         },
     "scripts":
         {
-            "start": "php -S localhost:5002 -t=public",
+            "start": "@composer delete-cache && php -S localhost:5002 -t=public",
             "kill": "(lsof -n -i4TCP:5002 | grep LISTEN | awk '{ print $2 }' | xargs kill) && rm -R cache",
-            "cache": "rm -R cache" 
+            "delete-cache": "if [ -d 'cache/views' ]; then rm -R cache/views; fi" 
         },
 
     "config":
