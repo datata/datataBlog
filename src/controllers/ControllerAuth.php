@@ -30,7 +30,8 @@ abstract class ControllerAuth
 
         $this->sessionManager = $this->container->get(SessionManager::class);
 
-        $this->auth();
+        //si hay sesion creada ejecuta auth()
+        if ($this->sessionManager->get('user')) $this->auth();
     }
 
     public abstract function index();
@@ -46,7 +47,7 @@ abstract class ControllerAuth
     {
         $userService = $this->container->get(UsersService::class);
         $id = $this->sessionManager->get('user');
-        if(!$id) return $this->redirectTo('login');
+        //if($id==0) return $this->redirectTo('login');
         $this->user = $userService->getUserById($id);
         if(!$this->user) return $this->redirectTo('login');
     }

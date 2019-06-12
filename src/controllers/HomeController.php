@@ -7,7 +7,7 @@ use App\models\entities\Post;
 
 use Kint;
 
-class HomeController extends Controller
+class HomeController extends ControllerAuth
 {
 
    public function index()
@@ -17,9 +17,9 @@ class HomeController extends Controller
       $posts = $PostsService->getPosts();
       Kint::dump($posts);
 
-      $user = $this->sessionManager->get('user');
+      //$user = $this->sessionManager->get('user');
 
-      $this ->viewManager->renderTemplate("index.view.html",['posts'=>$posts,'user'=>$user]);
+      $this ->viewManager->renderTemplate("index.view.html",['posts'=>$posts,'user'=>$this->user->email]);
    }  
 
 }

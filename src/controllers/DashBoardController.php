@@ -12,6 +12,8 @@ class DashBoardController extends ControllerAuth
     {       
 
         $PostsService = $this->container->get(PostsService::class);
+
+        if (! $this->user) return $this->redirectTo('login');
     
         $posts=$PostsService->getPostsById($this->user->id);
        
