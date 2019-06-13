@@ -38,6 +38,8 @@ class RegisterController extends Controller {
         $doctrine->em->persist($user);
         $doctrine->em->flush();
 
+        $this->redirectTo('login');
+
    }
 
 
