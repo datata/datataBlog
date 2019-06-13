@@ -2,6 +2,9 @@
 namespace App;
 
 use DI\Container;
+
+use App\controllers\NotFoundController;
+
 use Kint;
 
 class RouterManager
@@ -21,8 +24,14 @@ class RouterManager
         {
             case \FastRoute\Dispatcher::NOT_FOUND:
                 header("HTTP/1.0 404 Not Found");
-                $viewManager = new ViewManager();
-                $viewManager->renderTemplate("notFound.view.html");
+                //$viewManager = new ViewManager();
+                //$viewManager->renderTemplate("\App\NotFoundController.view.html");
+
+                $this->container->call(["App\controllers\NotFoundController", "index"], [0]);
+
+                //$notFound = $this->container->get(NotFoundController::class);
+                //$notFound->index();
+
             break;
 
             case \FastRoute\Dispatcher::FOUND:
