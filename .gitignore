@@ -1,4 +1,5 @@
 \vendor
 \cache
 .dockerignore
+.phpunit.result.cache
 Dockerfile
